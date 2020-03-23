@@ -14,7 +14,7 @@
 		<table width="410" height="100" cellspacing="0" align="center">
 			<tr>
 				<td align="center" bgcolor="#999"><input type="image"
-					src="images/naver.jpg" width="413" height="58"></td>
+					src="images/ZipCode_img01.gif" width="413" height="58"></td>
 			</tr>
 			<tr>
 				<td bgcolor="#F5FFEA" align="center"><strong><font
@@ -24,7 +24,7 @@
 			<tr height="30">
 				<td bgcolor="#f5ffea" align="center"><input type="text"
 					name="dong" size="10">&nbsp;<input type="image"
-					src="images/m-102.gif" width="69" height="19"></td>
+					src="images/m-i02.gif" width="69" height="19"></td>
 			</tr>
 		</table>
 
