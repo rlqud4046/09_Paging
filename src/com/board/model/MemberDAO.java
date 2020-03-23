@@ -4,9 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class MemberDAO {
 
@@ -173,6 +177,13 @@ public class MemberDAO {
 		}
 
 		return result;
+	}
+	
+	public ArrayList searchZipCode(String dong) {
+		ArrayList zip = new ArrayList<>();
+		
+		
+		return zip;
 	}
 
 }

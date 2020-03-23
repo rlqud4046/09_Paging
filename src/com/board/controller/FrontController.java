@@ -52,28 +52,31 @@ public class FrontController extends HttpServlet {
 			action = new BoardContAction();
 			action.execute(request, response);
 			viewPage = "board_cont.jsp";
-		}else if(command.equals("board_edit.do")) {
+		} else if (command.equals("board_edit.do")) {
 			action = new BoardEditAction();
 			action.execute(request, response);
 			viewPage = "board_edit.jsp";
-		}else if(command.equals("board_edit_ok.do")) {
+		} else if (command.equals("board_edit_ok.do")) {
 			action = new BoardEditOkAction();
 			action.execute(request, response);
-		}else if(command.equals("board_del.do")) {
+		} else if (command.equals("board_del.do")) {
 			action = new BoardDelAction();
 			action.execute(request, response);
-			viewPage="board_check.jsp";
-		}else if(command.equals("board_del_ok.do")) {
+			viewPage = "board_check.jsp";
+		} else if (command.equals("board_del_ok.do")) {
 			action = new BoardDelOkAction();
 			action.execute(request, response);
-		}else if(command.equals("board_search.do")) {
+		} else if (command.equals("board_search.do")) {
 			action = new BoardSearchAction();
 			action.execute(request, response);
 			viewPage = "board_search.jsp";
-		}else if(command.equals("join.do")) {
+		} else if (command.equals("join.do")) {
 			viewPage = "member_join.jsp";
-		}else if(command.equals("zipcode_find.do")) {
+		} else if (command.equals("zipcode_find.do")) {
 			viewPage = "zipcode.jsp";
+		} else if (command.equals("zipcode_ok.do")) {
+			action = new ZipCodeAction();
+			action.execute(request, response);
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);

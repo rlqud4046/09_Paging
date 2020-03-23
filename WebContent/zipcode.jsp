@@ -5,6 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+	function check(form) { 
+		if(postform.dong.value == ""){
+			alert("동을 입력해 주세요.");
+			postform.dong.focus();
+			return false;
+		}
+	}
+
+
+</script>
+
 </head>
 <body bgcolor="#fff" topmargin="0" leftmargin="0"
 	onload="postform.dong.focus()">
