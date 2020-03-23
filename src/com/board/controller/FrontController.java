@@ -77,6 +77,7 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("zipcode_ok.do")) {
 			action = new ZipCodeAction();
 			action.execute(request, response);
+			viewPage = "zipcode.jsp";
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);

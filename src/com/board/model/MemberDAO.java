@@ -164,25 +164,54 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				result = 1;
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closeConn(rs, pstmt, con);
 		}
 
 		return result;
 	}
-	
+
 	public ArrayList searchZipCode(String dong) {
 		ArrayList zip = new ArrayList<>();
-		
-		
+
+		try {
+			openConn();
+			sql = " select * from zipcode where dong like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + dong + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String zipCode = rs.getString("zipcode");
+				String sido = rs.getString("sido");
+				String gugun = rs.getString("gugun");
+				String dong1 = rs.getString("dong");
+				String bunji = rs.getString("bunji");
+
+				// 번지를 뺀 주소 저장
+				String addr1 = sido + gugun + dong1;
+				// 번지를 포함한 주소 저장
+				String addr2 = sido + gugun + dong1 + bunji;
+
+				// list에 레코드 혀태로 자장
+				zip.add(zipCode + "," + addr1 + "," + addr2);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+
+		}
+
 		return zip;
 	}
 

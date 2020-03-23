@@ -1,5 +1,14 @@
+<%@page import="java.util.StringTokenizer"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
+<%
+	ArrayList zipCodeList = (ArrayList) request.getAttribute("zip");
+	String dong = (String) request.getAttribute("dong");
+	String zipcode, addr, addr2;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,15 +16,13 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-	function check(form) { 
-		if(postform.dong.value == ""){
+	function check(form) {
+		if (postform.dong.value == "") {
 			alert("동을 입력해 주세요.");
 			postform.dong.focus();
 			return false;
 		}
 	}
-
-
 </script>
 
 </head>
@@ -38,6 +45,48 @@
 				<td bgcolor="#f5ffea" align="center"><input type="text"
 					name="dong" size="10">&nbsp;<input type="image"
 					src="images/m-i02.gif" width="69" height="19"></td>
+			</tr>
+
+			<%-- 실제 우편번호가 출력 될 위치 --%>
+			<%
+				if (dong != null) {
+					if (zipCodeList.size() != 0) {
+			%>
+			<tr>
+				<td bgcolor="#f5ffea" headers="30" align="center"><select
+					name="post_list" onchange="selectnow()">
+						<option value="">:::주소를선택하세요:::</option>
+						<%
+							for (int i = 0; i < zipCodeList.size(); i++) {
+										String data = (String) zipCodeList.get(i);
+										StringTokenizer st = new StringTokenizer(data, ",");
+										zipcode = st.nextToken();
+										addr = st.nextToken();
+										addr2 = st.nextToken();
+										String totalAddr = zipcode + addr;
+						%>
+						<option value="<%=totalAddr%>">[<%=zipcode%>]%nbsp;<%=addr%></option>
+
+						<%
+							}
+						%>
+
+				</select></td>
+			</tr>
+			<%
+				} else {
+			%>
+			<tr>
+				<td bgcolor="#f5ffea" height="30" align="center"><font
+					color="#466d1b"><span class="style1">검색 결과가 없습니다.</span></font></td>
+			</tr>
+			<%
+				}
+				}
+			%>
+
+			<tr>
+				<td bgcolor="#508c0f" colspan="3" height="3"></td>
 			</tr>
 		</table>
 

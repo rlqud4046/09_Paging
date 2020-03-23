@@ -16,8 +16,11 @@ public class ZipCodeAction implements Action {
 		String dong = request.getParameter("dong").trim();
 		
 		MemberDAO dao = MemberDAO.getInstance();
-		ArrayList zip = dao.searchZipCode(dong);
+		ArrayList zipList = dao.searchZipCode(dong);
 		
+		
+		request.setAttribute("zip", zipList);
+		request.setAttribute("dong", dong);
 		
 		
 	}
