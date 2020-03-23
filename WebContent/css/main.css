@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+/* main 페이지의  header 영역 UI */
+
+#header {
+	width: 700px; height: 50px;
+	border: 1px solid gray;
+	border-radius: 10px;
+}
+
+#logo {
+	width: 100px; height: 20px;
+	margin: 10px;
+	float: left;
+}
+
+#top_login {
+	width: 500px; height: 20px;
+	margin: 10px
+	float: left;
+}
+
+#top_login ul li {
+	list-style: none;
+	padding: 10px 0 0 10px;
+	float: left;
+	padding: 0 15px 0 0;
+}
+
+.clear {
+	clear: both;
+}
+
+
