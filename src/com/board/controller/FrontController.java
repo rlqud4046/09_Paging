@@ -78,6 +78,8 @@ public class FrontController extends HttpServlet {
 			action = new ZipCodeAction();
 			action.execute(request, response);
 			viewPage = "zipcode.jsp";
+		} else if (command.equals("logout.do")) {
+			viewPage = "logout.jsp";
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);

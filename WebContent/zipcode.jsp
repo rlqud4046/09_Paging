@@ -23,6 +23,23 @@
 			return false;
 		}
 	}
+	
+	function selectnow() {
+		var zip = document.postform.post_list.value;
+		var zip1 = zip.substring(0,3);	// 우편번호 앞 세자리
+		var zip2 = zip.substring(4,7);	// 우편번호 뒤 세자리
+		var addr2 = zip.substring(7,(zip.length));	// 주소
+		
+		// opener : 현재 페이지를 open한 주체(회원가입 폼 페이지)
+		opener.document.f.member_zip1.value = zip1; 
+		// 여기서 f는 회원가입 폼 페이지의 form태그의 name 속성, member_zip1은 그 폼 안에있는 속성중 하나의 name, 그 속성의 value에 zip1을 넣어라
+		opener.document.f.member_zip2.value = zip2;
+		opener.document.f.member_addr1.value = addr2;
+		
+		parent = window.close();	// 그 후 윈도우 창을 닫아준다
+	}
+	
+	
 </script>
 
 </head>
@@ -65,7 +82,7 @@
 										addr2 = st.nextToken();
 										String totalAddr = zipcode + addr;
 						%>
-						<option value="<%=totalAddr%>">[<%=zipcode%>]%nbsp;<%=addr%></option>
+						<option value="<%=totalAddr%>">[<%=zipcode%>]&nbsp;<%=addr%></option>
 
 						<%
 							}

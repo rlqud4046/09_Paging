@@ -64,7 +64,7 @@ $(function(){
 					return false;
 				
 				}
-				
+			
 			
 			},
 			
@@ -74,7 +74,7 @@ $(function(){
 			
 		});	// Ajax end
 		
-		
+																										
 	});
 	
 });
